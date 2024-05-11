@@ -27,14 +27,14 @@ public class LoxClass : ILoxCallable
     public object Call(Interpreter interpreter, List<object> arguments)
     {
         LoxInstance instance = new LoxInstance(this);
-        LoxFunction initializer = FindMethod("init");
+        LoxFunction? initializer = FindMethod("init");
         if(initializer is not null){
             initializer.Bind(instance).Call(interpreter, arguments);
         }
         return instance;
     }
 
-    public LoxFunction FindMethod(string name) {
+    public LoxFunction? FindMethod(string name) {
         if (methods.ContainsKey(name)) {
             return methods[name];
         }

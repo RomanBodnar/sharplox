@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata;
-using System.Text.RegularExpressions;
-using static sharplox.TokenType;
+﻿using static sharplox.TokenType;
 
 namespace sharplox;
 // program        → declaration* EOF
@@ -64,8 +62,8 @@ public class Parser {
         this.tokens = tokens;
     }
 
-    public List<Stmt> Parse() {
-        var statements = new List<Stmt>();
+    public List<Stmt?> Parse() {
+        var statements = new List<Stmt?>();
         while(!IsAtEnd){
             statements.Add(Declaration());
         }
@@ -214,7 +212,7 @@ public class Parser {
 
     private Stmt ReturnStatement() {
         Token keyword = Previous;
-        Expr value = null;
+        Expr? value = null;
         if(!Check(SEMICOLON)){
             value = Expression();
         }
@@ -226,7 +224,7 @@ public class Parser {
     private List<Stmt> Block() {
         var statements = new List<Stmt>();
         while(!Check(RIGHT_BRACE) && !IsAtEnd) {
-            statements.Add(Declaration());
+            statements.Add(Declaration()!);
         }
         Consume(RIGHT_BRACE, "Expect '}' after block.");
         return statements;

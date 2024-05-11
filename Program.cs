@@ -58,6 +58,7 @@ public class Lox
         }
     }
 
+    #nullable disable
     private static void Run(string source) {
         var scanner = new Scanner(source);
         List<Token> tokens = scanner.ScanTokens();
@@ -73,7 +74,6 @@ public class Lox
         if (HadError) return;
         interpreter.Interpret(statements);
         return;
-
     }
 
     public static void Error(int line, string message) {

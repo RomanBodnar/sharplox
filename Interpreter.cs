@@ -105,7 +105,7 @@ public class Interpreter : Expr.IVisitor<object>, Stmt.IVisitor<object?>
 
         var @class = new LoxClass(stmt.Name.Lexeme, (LoxClass?)superclass, methods);
         if(superclass is not null){
-            this.environment = this.environment.Enclosing;
+            this.environment = this.environment.Enclosing!;
         }
         this.environment.Assign(stmt.Name, @class);
         return null;

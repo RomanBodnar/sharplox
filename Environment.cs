@@ -1,9 +1,8 @@
 ﻿namespace sharplox;
 
-#nullable disable
 public class Environment {
     protected readonly Environment? enclosing;
-    public Environment Enclosing => enclosing;
+    public Environment? Enclosing => enclosing;
     public Dictionary<string, object?> Values => values;
     public Environment() {
         this.enclosing = null;
@@ -22,7 +21,7 @@ public class Environment {
     Environment Ancestor(int distance) {
         Environment environment = this;
         for (int i = 0; i < distance; i++) {
-            environment = environment.enclosing; 
+            environment = environment.enclosing!; 
         }
 
         return environment;
