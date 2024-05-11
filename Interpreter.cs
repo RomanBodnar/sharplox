@@ -120,9 +120,6 @@ public class Interpreter : Expr.IVisitor<object>, Stmt.IVisitor<object?>
     }
 
     public object LookUpVariable(Token name, Expr expr) {
-        if(name.Lexeme == "this") {
-            Console.WriteLine(JsonConvert.SerializeObject(environment));
-        }
         bool isPresent = locals.TryGetValue(expr, out int distance);
         if(isPresent) {
             return environment.GetAt(distance, name.Lexeme);
