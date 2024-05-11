@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "z+o5GbVQy6cVnEHR+7nsKlPuTDHoxE+Tk4BebIBRtWWDZltN6GXc/2OJQz7+SPEVpXHcEArDGojwYckiFsjWwA==",
+  "success": true,
+  "projectFilePath": "/Users/romanbodnar/code/lang/sharplox/sharplox.csproj",
+  "expectedPackageFiles": [
+    "/Users/romanbodnar/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

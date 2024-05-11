@@ -1,0 +1,13 @@
+var a = "a";
+fun bad() {
+    fun second() {
+        print a;
+    }
+    var a = "bbb";
+    
+    a = "sss";
+    second();
+    print a;
+}
+
+bad();
