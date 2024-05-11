@@ -4,13 +4,12 @@ namespace sharplox;
 
 public class Interpreter : Expr.IVisitor<object>, Stmt.IVisitor<object?>
 {
-    public readonly Environment Globals = new Environment();
+    public readonly Environment Globals = new();
     private readonly Dictionary<Expr, int> locals = [];
     private Environment environment;
     
     public Interpreter() {
         environment = Globals;
-
         Globals.Define("clock", new ClockFunction());
     }
 
@@ -104,7 +103,7 @@ public class Interpreter : Expr.IVisitor<object>, Stmt.IVisitor<object?>
             methods.Add(method.Name.Lexeme, function);
         }
 
-        var @class = new LoxClass(stmt.Name.Lexeme, (LoxClass)superclass, methods);
+        var @class = new LoxClass(stmt.Name.Lexeme, (LoxClass?)superclass, methods);
         if(superclass is not null){
             this.environment = this.environment.Enclosing;
         }

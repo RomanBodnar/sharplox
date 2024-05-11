@@ -4,10 +4,10 @@ namespace sharplox;
 public class LoxClass : ILoxCallable
 {
     public readonly string Name;
-    public readonly LoxClass Superclass;
+    public readonly LoxClass? Superclass;
     private readonly Dictionary<string, LoxFunction> methods;
 
-    public LoxClass(string name, LoxClass superclass, Dictionary<string, LoxFunction> methods){
+    public LoxClass(string name, LoxClass? superclass, Dictionary<string, LoxFunction> methods){
         Name = name;
         Superclass = superclass;
         this.methods = methods;
