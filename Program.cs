@@ -13,30 +13,7 @@ namespace sharplox;
 // binary         → expression operator expression ;
 // operator       → "==" | "!=" | "<" | "<=" | ">" | ">="
 //                | "+"  | "-"  | "*" | "/" ;
-
-// -------------------------------------
-// VERSION 2
-// program        → statement* EOF
-// declaration    → varDecl
-//               | statement ;
-
-// statement      → exprStmt
-//                | printStmt ;
-
-// exprStmt       → expression ";" ;
-// printStmt      → "print" expression ";" ;
-// expression     → equality ;
-// equality       → comparison ( ( "!=" | "==" ) comparison )* ;
-// comparison     → term ( ( ">" | ">=" | "<" | "<=" ) term )* ;
-// term           → factor ( ( "-" | "+" ) factor )* ;
-// factor         → unary ( ( "/" | "*" )  unary )* ;        // Putting the recursive production on the left side and unary on the right makes the rule left-associative and unambiguous.
-// unary          → ( "!" | "-" ) unary | primary;              // Each rule needs to match expressions at that precedence level or higher, so we also need to let this match a primary expression.
-// primary        → NUMBER | STRING | "true" | "false" | "nil"
-//                | "(" expression ")" ;
-
-
-
-class Lox
+public class Lox
 {
     private static readonly Interpreter interpreter = new Interpreter();
     public static bool HadError { get; private set; }
@@ -44,9 +21,6 @@ class Lox
 
     static void Main(string[] args)
     {
-        
-        // RunFile("lox.lox");
-        // return;
         if(args.Length > 1) {
             Console.WriteLine("Usage: sharplox [script]");
             System.Environment.Exit(64);
