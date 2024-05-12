@@ -27,9 +27,20 @@ cake.taste();
 print cake.name;
 
 
-class Eclair {
-  cook() {
-    super.cook();
-    print "Pipe full of crème pâtissière.";
-  }
+fun sum(a, b) {
+    return a + b;
 }
+
+var c = sum(1, 2);
+print c;
+
+class Node {
+    init() {
+        this.value = 0;
+        //this.next = Node();
+    }
+}
+
+var head = Node();
+print head.value;
+//print head.next;

@@ -11,4 +11,9 @@
     <PackageReference Include="newtonsoft.json" Version="13.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Expressions/" />
+    <Folder Include="Statements/" />
+  </ItemGroup>
+
 </Project>

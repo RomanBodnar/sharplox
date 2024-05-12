@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.Data.Common;
-using static sharplox.TokenType;
+﻿using static sharplox.TokenType;
 using static System.Char;
 using discardFunc = System.Func<sharplox.TokenType?>;
 namespace sharplox;
@@ -10,12 +8,12 @@ public class Scanner {
     private readonly List<Token> tokens = [];
 
     /// <summary>
-    /// the first character in the lexeme being scanned
+    /// The first character in the lexeme being scanned
     /// </summary>
     private int start = 0; 
     
     /// <summary>
-    /// Points at character currntly being considered
+    /// Points at character currently being considered
     /// </summary>
     private int current = 0;
     private int line = 1;
@@ -202,13 +200,13 @@ public class Scanner {
 
     private bool IsAtEnd => current >= source.Length;
 
-    private bool IsAlpha(char c) {
+    private static bool IsAlpha(char c) {
         return IsBetween(c, 'a', 'z')
             || IsBetween(c, 'A', 'Z')
             || c == '_';
     }
 
-    private bool IsAlphaNumeric(char c) {
+    private static bool IsAlphaNumeric(char c) {
         return IsAlpha(c) || IsAsciiDigit(c);
     }
 }
